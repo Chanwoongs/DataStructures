@@ -1,11 +1,94 @@
 ﻿#include <iostream>
 #include <vector>
 
+// 반복자 (Iterator 클래스)
+template<typename Vector>
+class VectorIterator
+{
+public:
+	// 타입 지정
+	using ValueType = typename Vector::ValueType;
+	using PointerType = ValueType*;
+	using ReferenceType = ValueType&;
+
+public:
+	VectorIterator(PointerType pointer)
+		: pointer(pointer)
+	{
+
+	}
+	
+	// 포인터 증감 연산자 오버로딩
+	// 전위 증가 연산자
+	VectorIterator& operator++()
+	{
+		++pointer;
+		return *this;
+	}
+	// 후위 증가 연산자
+	VectorIterator& operator++(int)
+	{
+		VectorIterator iterator = *this;
+		++(*this);
+		return iterator;
+	}
+
+	// 전위 감소 연산자
+	VectorIterator& operator--()
+	{
+		--pointer;
+		return *this;
+	}
+	// 후위 감소 연산자
+	VectorIterator& operator--(int)
+	{
+		VectorIterator iterator = *this;
+		--(*this);
+		return iterator;
+	}
+
+	// 인덱스 연산자 오버로딩
+	ReferenceType operator[](int index)
+	{
+		return *(pointer + index);
+	}
+
+	// 포인터 연산자 오버로딩
+	PointerType operator->()
+	{
+		return pointer;
+	}
+
+	// 값 반환 연산자 오버로딩
+	ReferenceType operator*()
+	{
+		return *pointer;
+	}
+
+	// 비교 연산자
+	bool operator==(const VectorIterator& other) const
+	{
+		return pointer == other.pointer;
+	}
+	bool operator!=(const VectorIterator& other) const
+	{
+		return pointer != other.pointer;
+		//return !(*this == other);
+	}
+
+private:
+	PointerType pointer;
+};
+
 // 동적 배열 (리스트) 클래스
 // 템플릿
 template<typename T>
 class List
 {
+public:
+	using ValueType = T;
+	using Iterator = VectorIterator<List<T>>;
+
 public:
 	List()
 	{
@@ -97,6 +180,16 @@ public:
 		return data[index];
 	}
 
+	// Iterator 관련 함수
+	Iterator begin()
+	{
+		return Iterator(data);
+	}
+	Iterator end()
+	{
+		return Iterator(data + count);
+	}
+
 	// Getter
 	// 요소 수 반환
 	int Count() const { return count; }
@@ -163,4 +256,14 @@ int main()
 
 	snprintf(buffer, 256, "%d, %d\n", static_cast<int>(vector.size()), static_cast<int>(vector.capacity()));
 	std::cout << buffer << '\n';
+
+	// Range-Based Loop / Range Loop
+	for (const auto& item : vector)
+	{
+		std::cout << item << ' ';
+	}
+	for (const auto& item : list)
+	{
+		std::cout << item << ' ';
+	}
 } 
