@@ -21,7 +21,7 @@ public:
 	void Print();
 
 	// 저장된 요소의 수 반환(Getter)
-	__forceinline int Count() const { return count;	}
+	__forceinline int Count() const { return count; }
 
 private:
 	// 헤드 노드
