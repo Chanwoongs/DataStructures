@@ -13,9 +13,9 @@ public:
 
 	~LinkedList()
 	{
-		if (head != nullptr)
+		if (first != nullptr)
 		{
-			Node<T>* current = head;
+			Node<T>* current = first;
 			Node<T>* deleteNode = nullptr;
 
 			while (current != nullptr)
@@ -35,17 +35,17 @@ public:
 		Node<T>* newNode = new Node<T>(data);
 
 		// 1. 헤드가 없는 경우
-		if (head == nullptr)
+		if (first == nullptr)
 		{
-			head = newNode;
+			first = newNode;
 		}
 		// 2. 헤드가 있는 경우
 		else
 		{
 			// 새 노드의 다음 노드를 기존의 헤드 노드로 설정
-			newNode->next = head;
+			newNode->next = first;
 			// 헤드 노드를 새 노드로 교체
-			head = newNode;
+			first = newNode;
 		}
 
 		// 저장된 노드 수 증가
@@ -60,15 +60,15 @@ public:
 
 		// 삽입할 위치 찾기
 		// 1. Head가 비어있는 경우
-		if (head == nullptr)
+		if (first == nullptr)
 		{
-			head = newNode;
+			first = newNode;
 		}
 		// 삽입할 위치를 검색 후 노드 삽입
 		else
 		{
 			// 노드 포인터 2개를 사용해 검색
-			Node<T>* current = head;
+			Node<T>* current = first;
 			Node<T>* trail = nullptr;
 
 			// 위치 검색
@@ -87,10 +87,10 @@ public:
 			}
 
 			// 검색된 결과를 확인해서 처리
-			if (current == head)
+			if (current == first)
 			{
-				newNode->next = head;
-				head = newNode;
+				newNode->next = first;
+				first = newNode;
 			}
 			else
 			{
@@ -106,14 +106,14 @@ public:
 	void Delete(const T& data)
 	{
 		// 예외 처리
-		if (head == nullptr)
+		if (first == nullptr)
 		{
 			std::cout << "리스트가 비어있어 삭제가 불가능합니다.\n";
 			return;
 		}
 
 		// 삭제할 노드 찾기
-		Node<T>* current = head;
+		Node<T>* current = first;
 		Node<T>* trail = nullptr;
 
 		while (current != nullptr)
@@ -133,9 +133,9 @@ public:
 			return;
 		}
 
-		if (current == head)
+		if (current == first)
 		{
-			head = head->next;
+			first = first->next;
 		}
 		else
 		{
@@ -149,7 +149,7 @@ public:
 	// 저장된 요소 출력 함수
 	void Print()
 	{
-		Node<T>* current = head;
+		Node<T>* current = first;
 
 		while (current != nullptr)
 		{
@@ -163,7 +163,7 @@ public:
 
 private:
 	// 헤드 노드
-	Node<T>* head = nullptr;
+	Node<T>* first = nullptr;
 
 	// 저장된 자료 수
 	int count = 0;

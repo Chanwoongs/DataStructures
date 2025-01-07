@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <forward_list>
 #include "LinkedList.h"
 
@@ -12,14 +12,14 @@ int main()
 	list.Insert(40);
 	list.Insert(50);
 
-	std::cout << "---------- ¸®½ºÆ® µ¥ÀÌÅÍ Ãâ·Â ----------\n";
+	std::cout << "---------- ë¦¬ìŠ¤íŠ¸ ë°ì´í„° ì¶œë ¥ ----------\n";
 	list.Print();
 
 	list.Delete(30);
 	list.Delete(50);
 	list.Delete(500);
 
-	std::cout << "---------- ¸®½ºÆ® µ¥ÀÌÅÍ »èÁ¦ ÈÄ Ãâ·Â ----------\n";
+	std::cout << "---------- ë¦¬ìŠ¤íŠ¸ ë°ì´í„° ì‚­ì œ í›„ ì¶œë ¥ ----------\n";
 
 	list.Print();
 }
