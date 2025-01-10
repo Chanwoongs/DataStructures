@@ -3,22 +3,20 @@
 #include <iostream>
 
 // 해시 함수
-int GenerateHash(const char* keyString)
+int GenerateHash(std::string keyString)
 {
-    // 전달 받은 문자열 길이 확인
-    int length = strlen(keyString);
-
     // 생성할 키
     int hash = 0;
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < (int)keyString.size(); i++)
     {
         hash = hash * 31 + keyString[i];
     }
-
-    return hash;
+    
+    // Hash 값이 너무 커서 음수가 나오는 경우에 대한 처리
+    return hash < 0 ? -hash : hash;
 }
 
-void HashTable::Add(const char* key, const char* value)
+void HashTable::Add(std::string key, std::string value)
 {
     // 인덱스 구하기
     int bucketIndex = GenerateHash(key) % bucketCount;
@@ -29,9 +27,9 @@ void HashTable::Add(const char* key, const char* value)
     // 검색
     // 해시 테이블은 중복을 허용하지 않음
     for (int i = 0; i < (int)position.size(); i++)
-    {
+    { 
         // 키 비교
-        if (strcmp(position[i].key, key) == 0)
+        if (position[i].key == key)
         {
             std::cout << "이미 같은 키가 저장되어 있어 삽입 실패\n";
             return;
@@ -42,7 +40,7 @@ void HashTable::Add(const char* key, const char* value)
     position.push_back(Entry(key, value));
 }
 
-void HashTable::Delete(const char* key)
+void HashTable::Delete(std::string key)
 {
     // 인덱스 구하기
     int bucketIndex = GenerateHash(key) % bucketCount;
@@ -54,7 +52,7 @@ void HashTable::Delete(const char* key)
     for (int i = 0; i < (int)position.size(); i++)
     {
         // 키 비교
-        if (strcmp(position[i].key, key) == 0)
+        if (position[i].key == key)
         {
             position.erase(position.begin() + i);
             std::cout << "키: " << key << " 항목을 삭제\n";
@@ -66,7 +64,7 @@ void HashTable::Delete(const char* key)
     std::cout << "삭제할 항목을 찾지 못했습니다\n";
 }
 
-bool HashTable::Find(const char* key, Entry& outValue)
+bool HashTable::Find(std::string key, Entry& outValue)
 {  
     // 인덱스 구하기
     int bucketIndex = GenerateHash(key) % bucketCount;
@@ -84,7 +82,7 @@ bool HashTable::Find(const char* key, Entry& outValue)
     for (int i = 0; i < (int)position.size(); i++)
     {
         // 키 비교
-        if (strcmp(position[i].key, key) == 0)
+        if (position[i].key == key)
         {
             outValue = position[i];
 
