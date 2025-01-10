@@ -92,9 +92,19 @@ void PrintLocation(int row, int column, int delay)
         {
             // 현재 방문 중인 위치를 특정 문자로 출력
             if (i == row && j == column)
-            {  
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
                 std::cout << "P ";
                 continue;
+            }
+
+            if (map[i][j] == '1')
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 30);
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
             }
 
             // 출력.
@@ -149,6 +159,7 @@ int main()
         // 도착했는지 확인.
         if (map[row][column] == 'e')
         {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY);
             std::cout << "\n미로 탐색 성공\n";
             std::cin.get();
             return 0;
