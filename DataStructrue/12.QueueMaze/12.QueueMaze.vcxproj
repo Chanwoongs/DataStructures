@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1e770915-97fd-48e7-a2e0-ab8650d676bf}</ProjectGuid>
-    <RootNamespace>TemplateQueue</RootNamespace>
+    <ProjectGuid>{306EE3EA-F41E-43A2-B600-9AE7C75C95CE}</ProjectGuid>
+    <RootNamespace>My9StackMaze</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>11.TemplateQueue</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,10 +143,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="Location2D.h" />
+    <ClInclude Include="Queue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Queue.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
