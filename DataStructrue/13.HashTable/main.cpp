@@ -14,4 +14,18 @@ int main()
     table.Add("Chanwoong", "01097665845");
 
     table.Print();
+
+    Pair<std::string, std::string> value;
+    if (table.Find("Chan", value))
+    {
+        std::cout << "키: Chan 항목을 찾았습니다\n";
+    }
+    else
+    {
+        std::cout << "키: Chan 항목을 못 찾았습니다\n";
+    }
+    
+    table.Delete("Bang");
+
+    table.Print();
 }
