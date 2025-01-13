@@ -71,7 +71,32 @@ private:
     // 전위 순회 재귀 함수
     void PreorderTraverseRecursive(Node<T>* node, int depth = 0)
     {
+        if (node == nullptr)
+        {
+            return;
+        }
 
+        // depth 출력
+        for (int i = 0; i < depth; ++i)
+        {
+            std::cout << "  ";
+        }
+
+        // 부모 노드
+        std::cout << node->data << "\n";
+
+        // 자손 노드
+        List<Node<T>*>* children = node->children;
+        if (children->Size() == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < children->Size(); i++)
+        {
+            Node<T>* child = children->At(i);
+            PreorderTraverseRecursive(child, depth + 1);
+        }
     }
 
     // 노드 삭제 재귀 함수

@@ -36,5 +36,9 @@ int main()
         std::cout << "D 노드 검색 실패\n";
     }
 
+    // 전위 순회
+    std::cout << "---전위 순회---\n";
+    tree.PreorderTraverse();
+
     std::cin.get();
 }
