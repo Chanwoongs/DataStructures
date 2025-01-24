@@ -11,11 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4.TemplateLinkedList", "4.T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5.DoubleLinkedList", "5.DoubleLinkedList\5.DoubleLinkedList.vcxproj", "{672BD166-0642-4F2E-9540-5CC188F241DC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C74D92B-8FFB-410B-A1F3-F70F9501860D}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6.ExpStack", "6.ExpStack\6.ExpStack.vcxproj", "{E6E8C22E-3B41-4EDE-A5EC-AEB17F6EF0B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7.TemplateStack", "7.TemplateStack\7.TemplateStack.vcxproj", "{9321B972-D5CD-4E11-A66F-E1A79AA5EA0B}"
@@ -37,6 +32,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14.Tree", "14.Tree\14.Tree.vcxproj", "{D16F1DFC-4908-4E95-B943-19E17F84F2D1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "15.BinaryTree", "15.BinaryTree\15.BinaryTree.vcxproj", "{413BBD3C-7021-4A8D-B656-1C046487317C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "16.BinarySearchTree", "16.BinarySearchTreee\16.BinarySearchTreee.vcxproj", "{7164D22F-CF78-4E61-9E28-5CB4AC270B55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -166,6 +163,14 @@ Global
 		{413BBD3C-7021-4A8D-B656-1C046487317C}.Release|x64.Build.0 = Release|x64
 		{413BBD3C-7021-4A8D-B656-1C046487317C}.Release|x86.ActiveCfg = Release|Win32
 		{413BBD3C-7021-4A8D-B656-1C046487317C}.Release|x86.Build.0 = Release|Win32
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Debug|x64.ActiveCfg = Debug|x64
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Debug|x64.Build.0 = Debug|x64
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Debug|x86.ActiveCfg = Debug|Win32
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Debug|x86.Build.0 = Debug|Win32
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Release|x64.ActiveCfg = Release|x64
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Release|x64.Build.0 = Release|x64
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Release|x86.ActiveCfg = Release|Win32
+		{7164D22F-CF78-4E61-9E28-5CB4AC270B55}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
